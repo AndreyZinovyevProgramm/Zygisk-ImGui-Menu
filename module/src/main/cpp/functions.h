@@ -29,6 +29,7 @@ void Backend(void *instance) {
             LOGW("Calling Purchase");
             PurchaseRealMoney(instance, CreateIl2cppString("special_offer1"), CreateIl2cppString("dev"), NULL);
             addCurrency = false;
+            return 1500;
         }
         if (addSkins) {
             LOGW("Calling Skins");
@@ -49,9 +50,25 @@ void* ProductDefinition(void *instance, monoString* id, monoString* storeSpecifi
     return old_ProductDefinition(instance, id, storeSpecificId, type, enabled, payouts);
 }
 
+//the void *instance is a self-created variable.
+int (*old_Kills)(void *instance);
+int Kills(void *instance) {
+    //Check if instance is NULL to prevent CRASH
+    if (instance != NULL)
+    {
+        return 99999; //Return how many value
+    }
+    //return the original value (this code isn't really needed if you have a toggle/switch)
+    return old_Kills(instance);
+}
+
+
+
+
 void Hooks() {
     HOOK("0xE7BC74", Backend, old_Backend);
     HOOK("0x29DA08C", ProductDefinition, old_ProductDefinition);
+    HOOK("0x18", Backend, old_Backend);
 }
 
 #endif //ZYCHEATS_SGUYS_FUNCTIONS_H
