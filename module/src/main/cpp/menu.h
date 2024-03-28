@@ -17,10 +17,7 @@ void DrawMenu()
             if (BeginTabItem(OBFUSCATE("Account"))) {
                 // here menu stuff, remove test btw
                 // ImGui::Checkbox(OBFUSCATE("This is a checkbox"), &test);
-                if (Button(OBFUSCATE("UnlockSkins"))) {
-                    // code for button action
-                    GetUnlockedSkins = true;
-                }
+                Checkbox(OBFUSCATE("UnlockSkins"), &isGodMode);
                 EndTabItem();
             }
             EndTabBar();
