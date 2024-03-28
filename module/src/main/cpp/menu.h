@@ -21,14 +21,6 @@ void DrawMenu()
                     // code for button action
                     addCurrency = true;
                 }
-                TextUnformatted(OBFUSCATE("Adds 1000 gems"));
-                if (Button(OBFUSCATE("Add Skins"))) {
-                    // code for button action
-                    addSkins = true;
-                }
-                Checkbox(OBFUSCATE("Everything unlocked"), &everythingUnlocked);
-                Checkbox(OBFUSCATE("Free Items"), &freeItems);
-                Checkbox(OBFUSCATE("Show Items"), &showAllItems);
                 EndTabItem();
             }
             EndTabBar();
